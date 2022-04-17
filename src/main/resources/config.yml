@@ -1,0 +1,126 @@
+# Whether flight is enabled when someone is in SafeFly mode (Can also be used as a pacifist mode)
+Flight: true
+
+# Whether the player in SafeFly mode can be affected by Potion effects
+DisablePotionEffects: true
+
+# Whether the player in SafeFly mode can attack other players or get attacked by other players
+DisablePvP: true
+
+# Whether the player in SafeFly mode can attack Mobs
+DisablePvE: true
+
+# Whether the player in SafeFly mode can be targeted by Mobs
+DisableMobTargeting: true
+
+# Whether the player in SafeFly mode can break blocks
+DisableBlockBreaking: false
+
+# Whether the player in SafeFly mode can place blocks
+DisableBlockPlacing: false
+
+# Whether the player in SafeFly mode should lose hunger
+LoseHunger: false
+
+# Whether the player in SafeFly mode should lose be able to lose health in any way
+LoseHealth: false
+
+# Items players won't be able to use when in SafeFly Mode
+DisabledItems:
+  - BOW
+  - CROSSBOW
+  - LINGERING_POTION
+  - SPLASH_POTION
+  - POTION
+  - TRIDENT
+  - SNOWBALL
+  - EGG
+  - LAVA_BUCKET
+  - FLINT_AND_STEEL
+
+# Blocks that the player cannot interact with when in SafeFly Mode
+DisabledInteractables:
+  - ENCHANTING_TABLE
+  - ANVIL
+
+# Worlds where players cannot enter SafeFly mode.
+DisabledWorlds:
+  - world1
+  - world2
+
+
+# Whether SafeFly mode is disabled when a player changes worlds
+DisableOnWorldChange: true
+
+# Whether SafeFly mode is disabled when a player teleports
+DisableOnTeleport: true
+
+# Whether SafeFly mode is disabled when a player enters PvP combat. DisablePvP option above must be set to false for this to work
+DisableOnPvP: false
+
+# Whether SafeFly mode is disabled when a player enters PvE combat. DisablePvE option above must be set to false for this to work
+DisableOnPvE: false
+
+# Whether Safefly mode is disabled when a player breaks a block. DisableBlockBreaking option above must be set to false for this to work
+DisableOnBreakBlock: false
+
+# Whether Safefly mode is disabled when a player places a block. DisableBlockPlacing option above must be set to false for this to work
+DisableOnPlaceBlock: false
+
+# Whether Safefly mode is disabled when a player uses an item in the above DisabledItems list
+DisableOnUseDisabledItem: false
+
+# Whether Safefly mode is disabled when a player interacts with a block in the above DisabledInteractables list
+DisableOnInteractWithDisabledInteractable: false
+
+############################ Messages ############################
+
+# 1.16+ can use RGB colours to colour the message for example #42f54e instead of &a.
+
+# Sent to a player when they enable SafeFly
+SafeFlyEnabledMessage: '&aYou are now in SafeFly mode.'
+
+# Sent to a player when they disable SafeFly
+SafeFlyDisabledMessage: '&cYou are no longer in SafeFly mode.'
+
+# Sent to a player when they are in SafeFly mode and try to attack another player
+CantDamagePlayerMessage: '&cYou cannot damage Players whilst in SafeFly Mode.'
+
+# Sent to a player when they are not in SafeFly mode but attack someone that is in SafeFly mode.
+CantDamagePlayerMessage2: '&cYou cannot damage Players that are in SafeFly Mode.'
+
+# Sent to a a player when they are in SafeFly mode and try to attack an entity
+CantDamageEntityMessage: '&cYou cannot damage Entities whilst in SafeFly Mode.'
+
+# Sent to a player when they are in SafeFly mode and try to break a block
+CantBreakBlockMessage: '&cYou cannot break blocks whilst in SafeFly Mode.'
+
+# Sent to a player when they are in SafeFly mode and try to place a block
+CantPlaceBlockMessage: '&cYou cannot place blocks whilst in SafeFly Mode.'
+
+# Sent to a player when they try to use an item that is in the DisabledItems list whilst in SafeFly mode.
+CantUseItemMessage: '&cYou cannot use this item whilst in SafeFly Mode.'
+
+# Sent to a player when they try to interact with a block that is in the DisabledInteractables List whilst in SafeFly mode.
+CantInteractWithBlockMessage: '&cYou cannot interact with this block whilst in SafeFly Mode.'
+
+# Sent to a player when they try to use /safefly [Player] but the player isnt found
+PlayerNotFoundMessage: '&cPlayer not found.'
+
+# Sent to a player when they don't have permission to use /safefly  /safeflyspeed and /safeflytimer
+NoPermissionMessage: '&cYou do not have permission to use this command!'
+
+# Sent to a player when they dont have permission to use /safefly [Player] /safeflyspeed [Speed] [Player] and /safeflytimer [Time In Seconds] [Player]
+NoPermissionMessage2: '&cYou do not have permission to use this command on other players!'
+
+# Sent to a player when the change their fly speed
+ChangeFlyingSpeedMessage: '&aYour fly speed was set to {speed}'
+
+# Sent to a player when they type a number bigger than 10 in /safeflyspeed [speed]
+SpeedTooHighMessage: '&cPlease enter a number between 1 and 10 to set your fly speed'
+
+# Sent to a player when the only have 10 seconds in SafeFly mode left.
+TenSecondWarningMessage: '&cWarning! You only have 10 seconds of SafeFly left.'
+
+# Sent to a player when they are in a world that they cannot use SafeFly in
+WorldIsDisabledMessage: '&cYou cannot enable SafeFly mode whilst in this world.'
