@@ -8,7 +8,7 @@ commands:
   safefly:
     description: Toggles SafeFly for player
     permission: SafeFly.use
-    usage: "Usage: /<command> <Player> <On/Off>"
+    usage: "Usage: /<command> <Player> [On/Off]"
     aliases: [sfly]
   safeflyreload:
     description: Reloads SafeFly config
@@ -18,10 +18,10 @@ commands:
   safeflyspeed:
     description: Sets fly speed for player.
     permission: SafeFly.speed
-    usage: "Usage: /<command> <Speed> <Player>"
+    usage: "Usage: /<command> <Speed> [Player]"
     aliases: [sflyspeed]
   safeflytimer:
     description: Toggles SafeFly for player for certain amount of time.
     permission: SafeFly.timer
-    usage: "Usage: /<command> <Time in Seconds> <Player>"
+    usage: "Usage: /<command> <Duration in Seconds> [Player]"
     aliases: [sflytimer]

@@ -25,6 +25,12 @@ LoseHunger: false
 # Whether the player in SafeFly mode should lose be able to lose health in any way
 LoseHealth: false
 
+# Whether the player in SafeFly mode can pick up items
+CanPickUpItems: true
+
+# Whether the player in SafeFly mode can drop items on the ground
+CanDropItems: true
+
 # Items players won't be able to use when in SafeFly Mode
 DisabledItems:
   - BOW
@@ -48,6 +54,10 @@ DisabledWorlds:
   - world1
   - world2
 
+# Commands that players cannot run whilst in SafeFly mode. Command MUST be in lower case letters
+DisabledCommands:
+  - command1
+  - command2
 
 # Whether SafeFly mode is disabled when a player changes worlds
 DisableOnWorldChange: true
@@ -124,3 +134,9 @@ TenSecondWarningMessage: '&cWarning! You only have 10 seconds of SafeFly left.'
 
 # Sent to a player when they are in a world that they cannot use SafeFly in
 WorldIsDisabledMessage: '&cYou cannot enable SafeFly mode whilst in this world.'
+
+# Sent to a player when they drop an item whilst in SafeFly mode
+DroppedItemMessage: '&cYou cannot drop items whilst in SafeFly Mode.'
+
+# Sent to a player when they use a command that is disabled whilst in SafeFly mode
+DisabledCommandMessage: '&cYou cannot use that command whilst in SafeFly Mode.'

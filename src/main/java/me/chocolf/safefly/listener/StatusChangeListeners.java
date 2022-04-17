@@ -32,7 +32,7 @@ public class StatusChangeListeners implements Listener{
             int oldFoodLevel = p.getFoodLevel();
             int newFoodLevel = e.getFoodLevel();
 
-            if ( oldFoodLevel > newFoodLevel && safeFlyManager.getPlayersInSafeFly().contains(p.getUniqueId()) )
+            if ( oldFoodLevel > newFoodLevel && safeFlyManager.isInSafeFly(p) )
                 e.setCancelled(true);
         }
     }
@@ -43,7 +43,8 @@ public class StatusChangeListeners implements Listener{
             SafeFlyManager safeFlyManager = plugin.getSafeFlyManager();
             if (safeFlyManager.shouldLoseHealth())
                 return;
-            if (safeFlyManager.getPlayersInSafeFly().contains(e.getEntity().getUniqueId())) {
+            Player p = (Player) e.getEntity();
+            if (safeFlyManager.isInSafeFly(p)) {
                 e.getEntity().setFireTicks(0);
                 e.setCancelled(true);
             }
@@ -53,7 +54,11 @@ public class StatusChangeListeners implements Listener{
     @EventHandler
     public void onPotionEffectApply(EntityPotionEffectEvent e) {
         SafeFlyManager safeFlyManager = plugin.getSafeFlyManager();
-        if (e.getEntity() instanceof Player && safeFlyManager.shouldDisablePotionEffects() && safeFlyManager.getPlayersInSafeFly().contains(e.getEntity().getUniqueId()))
+        if (!(e.getEntity() instanceof Player))
+            return;
+        Player p = (Player) e.getEntity();
+
+        if (safeFlyManager.shouldDisablePotionEffects() && safeFlyManager.isInSafeFly(p))
             e.setCancelled(true);
     }
 }

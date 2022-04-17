@@ -22,6 +22,7 @@ public class SafeFlyManager {
     private HashSet<String> disabledItems = new HashSet<>();
     private HashSet<String> disabledWorlds = new HashSet<>();
     private HashSet<String> disabledInteractables = new HashSet<>();
+    private HashSet<String> disabledCommands = new HashSet<>();
     private boolean flight;
     private boolean disablePotionEffects;
     private boolean disablePvP;
@@ -39,6 +40,8 @@ public class SafeFlyManager {
     private boolean disableOnInteractWithDisabledInteractable;
     private boolean disableOnPlaceBlock;
     private boolean disableOnBreakBlock;
+    private boolean disablePickup;
+    private boolean disableDropItem;
 
     public SafeFlyManager(SafeFly plugin) {
         this.plugin = plugin;
@@ -65,11 +68,13 @@ public class SafeFlyManager {
         disableOnInteractWithDisabledInteractable = config.getBoolean("DisableOnInteractWithDisabledInteractable");
         disableOnPlaceBlock = config.getBoolean("DisableOnPlaceBlock");
         disableOnBreakBlock = config.getBoolean("DisableOnBreakBlock");
-
+        disablePickup = config.getBoolean("CanPickUpItems");
+        disableDropItem = config.getBoolean("CanDropItems");
 
         disabledWorlds.clear();
         disabledItems.clear();
         disabledInteractables.clear();
+        disabledCommands.clear();
 
         List<String> disabledWorldsInConfig = config.getStringList("DisabledWorlds");
         for (String world : disabledWorldsInConfig)
@@ -82,9 +87,15 @@ public class SafeFlyManager {
         List<String> disabledInteractablesInConfig = config.getStringList("DisabledInteractables");
         for (String interactable : disabledInteractablesInConfig)
             disabledInteractables.add(interactable);
+
+        List<String> disabledCommandsInConfig = config.getStringList("DisabledCommands");
+        for (String command : disabledCommandsInConfig)
+            disabledCommands.add(command);
     }
 
-
+    public boolean isInSafeFly(Player p){
+        return playersInSafeFly.contains(p.getUniqueId());
+    }
 
     public void enableSafeFly(Player p) {
         MessageManager messageManager = plugin.getMessageManager();
@@ -166,6 +177,8 @@ public class SafeFlyManager {
         return disabledInteractables;
     }
 
+    public Set<String> getDisabledCommands() { return disabledCommands;}
+
     public boolean shouldEnableFlight() {
         return flight;
     }
@@ -232,6 +245,14 @@ public class SafeFlyManager {
 
     public boolean shouldDisableOnBreakBlock() {
         return disableOnBreakBlock;
+    }
+
+    public boolean shouldDisablePickup() {
+        return disablePickup;
+    }
+
+    public boolean shouldDisableDropItem() {
+        return disableDropItem;
     }
 
 }

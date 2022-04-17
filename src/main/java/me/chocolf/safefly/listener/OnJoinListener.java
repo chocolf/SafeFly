@@ -22,7 +22,7 @@ public class OnJoinListener implements Listener{
     public void onPlayerJoin(PlayerJoinEvent e) {
         SafeFlyManager safeFlyManager = plugin.getSafeFlyManager();
         Player p = e.getPlayer();
-        if (safeFlyManager.shouldEnableFlight() && safeFlyManager.getPlayersInSafeFly().contains(p.getUniqueId())) {
+        if (safeFlyManager.shouldEnableFlight() && safeFlyManager.isInSafeFly(p)) {
             p.setAllowFlight(true);
             p.setFlying(true);
         }

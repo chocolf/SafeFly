@@ -40,6 +40,8 @@ public class MessageManager {
         messagesMap.put("speedTooHigh", MessageManager.applyColour(config.getString("SpeedTooHighMessage")));
         messagesMap.put("tenSecondWarning", MessageManager.applyColour(config.getString("TenSecondWarningMessage")));
         messagesMap.put("worldIsDisabled", MessageManager.applyColour(config.getString("WorldIsDisabledMessage")));
+        messagesMap.put("droppedItemMessage", MessageManager.applyColour(config.getString("DroppedItemMessage")));
+        messagesMap.put("disabledCommandMessage", MessageManager.applyColour(config.getString("DisabledCommandMessage")));
     }
 
     public String getMessage(String messageName) {

@@ -56,7 +56,7 @@ public class CombatListeners implements Listener{
             SafeFlyManager safeFlyManager = plugin.getSafeFlyManager();
             MessageManager messageManager = plugin.getMessageManager();
 
-            if ( safeFlyManager.shouldDisablePvE() && safeFlyManager.getPlayersInSafeFly().contains(whoHit.getUniqueId())) {
+            if ( safeFlyManager.shouldDisablePvE() && safeFlyManager.isInSafeFly(whoHit)) {
 
                 if (e.getEntity() instanceof ItemFrame) return;
 
@@ -81,7 +81,7 @@ public class CombatListeners implements Listener{
         SafeFlyManager safeFlyManager = plugin.getSafeFlyManager();
         if (safeFlyManager.shouldDisableMobTargeting() && e.getTarget() instanceof Player) {
             Player p = (Player) e.getTarget();
-            if (safeFlyManager.getPlayersInSafeFly().contains(p.getUniqueId()))
+            if (safeFlyManager.isInSafeFly(p))
                 e.setCancelled(true);
         }
     }

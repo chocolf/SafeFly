@@ -27,11 +27,7 @@ public class SFTimerTabCompleter implements TabCompleter{
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
 
         if ( arguments1.isEmpty() ) {
-            arguments1.add("10");
-            arguments1.add("30");
-            arguments1.add("60");
-            arguments1.add("300");
-            arguments1.add("86400");
+            arguments1.add("<Duration in Seconds>");
         }
 
         for ( Player p : plugin.getServer().getOnlinePlayers()) {

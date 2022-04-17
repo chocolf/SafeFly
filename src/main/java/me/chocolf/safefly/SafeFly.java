@@ -4,17 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
+import me.chocolf.safefly.listener.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.chocolf.safefly.command.ReloadConfigCommand;
 import me.chocolf.safefly.command.SafeFlyCommand;
 import me.chocolf.safefly.command.SafeFlySpeedCommand;
 import me.chocolf.safefly.command.SafeFlyTimerCommand;
-import me.chocolf.safefly.listener.CombatListeners;
-import me.chocolf.safefly.listener.OnJoinListener;
-import me.chocolf.safefly.listener.PlayerInteractListeners;
-import me.chocolf.safefly.listener.StatusChangeListeners;
-import me.chocolf.safefly.listener.TeleportListeners;
 import me.chocolf.safefly.manager.MessageManager;
 import me.chocolf.safefly.manager.SafeFlyManager;
 import me.chocolf.safefly.tabcompleter.SFSpeedTabCompleter;
@@ -49,7 +45,9 @@ public class SafeFly extends JavaPlugin{
 
         // listeners
         new CombatListeners(this);
+        new OnCommandRanListener(this);
         new OnJoinListener(this);
+        new OnPlayerDropAndPickUpItemListener(this);
         new PlayerInteractListeners(this);
         new StatusChangeListeners(this);
         new TeleportListeners(this);

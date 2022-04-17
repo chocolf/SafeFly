@@ -26,7 +26,7 @@ public class PlayerInteractListeners implements Listener{
     public void onPlayerInteract(PlayerInteractEvent e) {
         SafeFlyManager safeFlyManager = plugin.getSafeFlyManager();
         Player p = e.getPlayer();
-        if ( !safeFlyManager.getPlayersInSafeFly().contains(p.getUniqueId()) ) return;
+        if ( !safeFlyManager.isInSafeFly(p) ) return;
 
 
         if ( e.getAction() != Action.RIGHT_CLICK_AIR && e.getAction() != Action.RIGHT_CLICK_BLOCK )
@@ -49,7 +49,7 @@ public class PlayerInteractListeners implements Listener{
         if (e.getHand() == EquipmentSlot.OFF_HAND) return;
         SafeFlyManager safeFlyManager = plugin.getSafeFlyManager();
         Player p = e.getPlayer();
-        if ( !safeFlyManager.getPlayersInSafeFly().contains(p.getUniqueId()) ) return;
+        if ( !safeFlyManager.isInSafeFly(p) ) return;
         if (e.getClickedBlock() == null) return;
 
         if (safeFlyManager.getDisabledInteractables().contains(e.getClickedBlock().getType().toString())) {
@@ -67,7 +67,7 @@ public class PlayerInteractListeners implements Listener{
         SafeFlyManager safeFlyManager = plugin.getSafeFlyManager();
         Player p = e.getPlayer();
         if (safeFlyManager.shouldDisableBlockBreaking()) {
-            if (safeFlyManager.getPlayersInSafeFly().contains(p.getUniqueId())) {
+            if (safeFlyManager.isInSafeFly(p)) {
                 p.sendMessage(plugin.getMessageManager().getMessage("cantBreakBlock"));
                 e.setCancelled(true);
             }
@@ -82,7 +82,7 @@ public class PlayerInteractListeners implements Listener{
         SafeFlyManager safeFlyManager = plugin.getSafeFlyManager();
         Player p = e.getPlayer();
         if (safeFlyManager.shouldDisableBlockPlacing()) {
-            if (safeFlyManager.getPlayersInSafeFly().contains(p.getUniqueId())) {
+            if (safeFlyManager.isInSafeFly(p)) {
                 p.sendMessage(plugin.getMessageManager().getMessage("cantPlaceBlock"));
                 e.setCancelled(true);
             }
